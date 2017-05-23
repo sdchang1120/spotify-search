@@ -80,3 +80,10 @@ $("#search-btn").click(function() {
   var artist = document.querySelector("#artist-query").value;
   getAlbums(artist);
 });
+
+// trigger search btn click when user presses 'enter' in search box
+$("#artist-query").keypress(function(e){
+    if(e.which == 13){
+      $("#search-btn").click();
+    }
+});
