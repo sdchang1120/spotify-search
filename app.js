@@ -24,8 +24,8 @@ function getTracks(albumId) {
 
       // wrapping tracks in elements to adding tracklist
       for (var i=0; i<tracks.length; i++) {
-        var trackLiTag = document.createElement('li');
-        var trackATag = document.createElement('a');
+        var trackLiTag = document.createElement("li");
+        var trackATag = document.createElement("a");
         trackATag.innerHTML = "<i class='fa fa-play'></i>";
         trackATag.href = tracks[i].external_urls.spotify;
         trackATag.setAttribute("target", "_blank");
