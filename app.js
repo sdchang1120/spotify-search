@@ -9,7 +9,6 @@ function getTracks(albumId) {
     url: 'https://api.spotify.com/v1/albums/' + albumId,
     success: function(response) {
 
-      // track variables
       var tracks = response.tracks.items;
 
       // clearing existing tracklist (to append new tracks)
@@ -48,7 +47,6 @@ function getAlbums(artist) {
      },
      success: function(response) {
 
-       // album variables
        var albums = response.albums.items;
 
        // clearing existing search results (to append new albums)
@@ -57,7 +55,7 @@ function getAlbums(artist) {
        // retrieving associated albums and appending them to search results
        for (var i=0; i<albums.length; i++) {
          var album = document.createElement('img');
-         album.src = albums[i].images[0].url;;
+         album.src = albums[i].images[0].url;
          album.classList.add("album");
          album.id = albums[i].id;
          results.append(album);
