@@ -11,28 +11,28 @@ function getTracks(albumId) {
 
       // track variables
       var tracks = response.tracks.items;
-      // adding class to body to show tracks
-      $('body').addClass('show-tracks');
+
       // clearing existing tracklist (to append new tracks)
       trackList.empty();
-      // adding header to tracklist
+
+      // adding header to tracklist -- Album Name [# of tracks]
       header.innerHTML = response.name + " [" + tracks.length + "]";
       trackList.append(header);
 
-      // adding tracks to tracklist
-      for (var i=0; i<tracks.length; i++) {
-        var trackName = tracks[i].name;
-        var extLink = tracks[i].external_urls.spotify;
-        var previewUrl = tracks[i].preview_url;
-        var trackListItem = document.createElement('li');
-        var spotifyLink = document.createElement('a');
+      // adding class to body to show tracks
+      $('body').addClass('show-tracks');
 
-        spotifyLink.innerHTML = "<i class='fa fa-play'></i>";
-        spotifyLink.href = extLink;
-        spotifyLink.setAttribute("target", "_blank");
-        trackListItem.append(trackName);
-        trackListItem.append(spotifyLink);
-        trackList.append(trackListItem);
+
+      // wrapping tracks in elements to adding tracklist
+      for (var i=0; i<tracks.length; i++) {
+        var trackLiTag = document.createElement('li');
+        var trackATag = document.createElement('a');
+        trackATag.innerHTML = "<i class='fa fa-play'></i>";
+        trackATag.href = tracks[i].external_urls.spotify;
+        trackATag.setAttribute("target", "_blank");
+        trackLiTag.append(tracks[i].name);
+        trackLiTag.append(trackATag);
+        trackList.append(trackLiTag);
       };
     }
   });
@@ -50,17 +50,16 @@ function getAlbums(artist) {
 
        // album variables
        var albums = response.albums.items;
+
        // clearing existing search results (to append new albums)
        results.empty();
 
        // retrieving associated albums and appending them to search results
        for (var i=0; i<albums.length; i++) {
-         var albumImgUrl = albums[i].images[0].url;
-         var albumId = albums[i].id;
          var album = document.createElement('img');
-         album.src = albumImgUrl;
+         album.src = albums[i].images[0].url;;
          album.classList.add("album");
-         album.id = albumId;
+         album.id = albums[i].id;
          results.append(album);
        }
 
