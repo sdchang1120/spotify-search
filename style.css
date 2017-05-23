@@ -140,7 +140,7 @@ a:hover, a:visited, a:active, a:focus {
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
-  background: #222;
+  background: #111;
 }
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
