@@ -1,7 +1,7 @@
 // variables
-var results = $('#search-results');
-var trackList = $('#tracklist');
-var header = document.createElement('h4');
+var results = $("#search-results");
+var trackList = $("#tracklist");
+var header = document.createElement("h4");
 
 // get tracks associated to clicked album
 function getTracks(albumId) {
@@ -19,7 +19,7 @@ function getTracks(albumId) {
       trackList.append(header);
 
       // adding class to body to show tracks
-      $('body').addClass('show-tracks');
+      $("body").addClass("show-tracks");
 
 
       // wrapping tracks in elements to adding tracklist
@@ -40,10 +40,10 @@ function getTracks(albumId) {
 // get albums associated to entered artist
 function getAlbums(artist) {
   $.ajax({
-     url: 'https://api.spotify.com/v1/search',
+     url: "https://api.spotify.com/v1/search",
      data: {
        q: artist,
-       type: 'album'
+       type: "album"
      },
      success: function(response) {
 
@@ -54,7 +54,7 @@ function getAlbums(artist) {
 
        // retrieving associated albums and appending them to search results
        for (var i=0; i<albums.length; i++) {
-         var album = document.createElement('img');
+         var album = document.createElement("img");
          album.src = albums[i].images[0].url;
          album.classList.add("album");
          album.id = albums[i].id;
@@ -62,7 +62,7 @@ function getAlbums(artist) {
        }
 
        // when user clicks on album cover
-       $('.album').click(function() {
+       $(".album").click(function() {
          var albumId = this.id;
          getTracks(albumId);
        });
@@ -71,12 +71,12 @@ function getAlbums(artist) {
 };
 
 // when user clicks on close btn on tracklist
-$('#close-btn').click(function() {
-  $('body').removeClass('show-tracks');
+$("#close-btn").click(function() {
+  $("body").removeClass("show-tracks");
 });
 
 // when user clicks on search btn
-$('#search-btn').click(function() {
-  var artist = document.querySelector('#artist-query').value;
+$("#search-btn").click(function() {
+  var artist = document.querySelector("#artist-query").value;
   getAlbums(artist);
 });
