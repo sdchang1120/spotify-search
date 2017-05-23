@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+
+body {
+  background: linear-gradient(to top, #000 0%, #333 100%);
+  height: 100%;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+body.show-tracks {
+  margin-bottom: 150px;
+}
+a {
+  color: #2ebd59;
+}
+a:hover, a:visited, a:active, a:focus {
+  color: #1ed760;
+}
+.container {
+  text-align: center;
+}
+
+/* search form */
+.form-control {
+  border-radius: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+  background-color: white;
+  border: 1px solid #d9dadc;
+}
+.form-control:focus {
+  /*-webkit-box-shadow: none;
+  box-shadow: none;*/
+  border-color: #919496;
+  outline: 0;
+}
+#search-input {
+  margin-bottom: 10px;
+}
+
+/* album cover styles */
+.album {
+  display: inline-block;
+  cursor: pointer;
+  width: 230px;
+  height: 230px;
+  padding: 10px;
+  transition: transform .3s ease;
+}
+.album:hover {
+  transform: scale(1.1);
+}
+
+/* tracklist overlay */
+#tracklist-overlay {
+  position: fixed;
+  width: 100%;
+  height: 150px;
+  padding-top:10px;
+  margin-bottom: 0;
+  left: 0;
+  bottom: -150px;
+  background: #111;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  transition: all .5s ease;
+}
+#tracklist {
+  padding: 10px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.show-tracks #tracklist-overlay {
+  bottom: 0px;
+}
+#tracklist h4 {
+  margin-top: 0;
+}
+#tracklist li {
+  list-style-position: inside;
+  padding: 5px;
+}
+#tracklist li a {
+  margin-left: 10px;
+}
+#tracklist li a i {
+  transition: transform .2s ease;
+}
+#tracklist li a:hover i {
+  transform: scale(1.2);
+}
+#close-btn {
+  position: fixed;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* buttons */
+.btn {
+  font-size: 18px;
+  line-height: 1.5;
+  border-radius: 500px;
+  padding: 12px 47px 8px;
+  -webkit-transition: background-color .15s ease,border-color .15s ease,color .15s ease;
+  -o-transition: background-color .15s ease,border-color .15s ease,color .15s ease;
+  transition: background-color .15s ease,border-color .15s ease,color .15s ease;
+  border-width: 0;
+  letter-spacing: 1.2px;
+  min-width: 130px;
+  text-transform: uppercase;
+  white-space: normal;
+}
+.btn-primary {
+  background: #2ebd59;
+  color: white;
+}
+.btn-primary:hover, .btn-primary:visited, .btn-primary:active, .btn-primary:focus {
+  background: #1ed760 !important;
+}
+.btn-primary:active {
+  background: #2ebd59;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background: #222;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #0f985b 0%, #3fe298 100%);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background-image: linear-gradient(to top, #0ba360 0%, #3fe298 100%);
+}

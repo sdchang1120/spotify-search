@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1><i class="fa fa-spotify" style="color: #2ebd59"></i> Spotify Search</h1>
+      <p>Enter an artist to see associated albums. Then click on an album and a track to listen in Spotify.</p>
+      <div id="search-input">
+        <input type="text" id="artist-query" class="form-control" placeholder="Type an artist name...">
+        <input type="submit" id="search-btn" class="btn btn-primary" value="Search">
+      </div>
+      <div id="search-results"></div>
+      <div id="tracklist-overlay">
+        <i id="close-btn" class="fa fa-close"></i>
+        <ol id="tracklist"></ol>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
