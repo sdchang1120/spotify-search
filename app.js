@@ -3,24 +3,23 @@ var results = $('#search-results');
 var trackList = $('#tracklist');
 var header = document.createElement('h4');
 
+// get tracks associated to clicked album
 function getTracks(albumId) {
   $.ajax({
     url: 'https://api.spotify.com/v1/albums/' + albumId,
     success: function(response) {
 
-      // adding class to body to show tracks
-      $('body').addClass('show-tracks');
-
       // track variables
       var tracks = response.tracks.items;
-
+      // adding class to body to show tracks
+      $('body').addClass('show-tracks');
       // clearing existing tracklist (to append new tracks)
       trackList.empty();
-
+      // adding header to tracklist
       header.innerHTML = response.name + " [" + tracks.length + "]";
       trackList.append(header);
 
-      // retrieving tracks and appending them to tracklist
+      // adding tracks to tracklist
       for (var i=0; i<tracks.length; i++) {
         var trackName = tracks[i].name;
         var extLink = tracks[i].external_urls.spotify;
@@ -39,6 +38,7 @@ function getTracks(albumId) {
   });
 };
 
+// get albums associated to entered artist
 function getAlbums(artist) {
   $.ajax({
      url: 'https://api.spotify.com/v1/search',
@@ -50,7 +50,6 @@ function getAlbums(artist) {
 
        // album variables
        var albums = response.albums.items;
-
        // clearing existing search results (to append new albums)
        results.empty();
 
@@ -65,7 +64,7 @@ function getAlbums(artist) {
          results.append(album);
        }
 
-       // album click event to get tracks
+       // when user clicks on album cover
        $('.album').click(function() {
          var albumId = this.id;
          getTracks(albumId);
@@ -74,17 +73,12 @@ function getAlbums(artist) {
   });
 };
 
-// click listener on close btn to close tracklist
+// when user clicks on close btn on tracklist
 $('#close-btn').click(function() {
   $('body').removeClass('show-tracks');
 });
 
-// click listener on album covers to get tracks
-$('.album').click(function() {
-  getTracks();
-});
-
-// click listener on search btn to get associated albums
+// when user clicks on search btn
 $('#search-btn').click(function() {
   var artist = document.querySelector('#artist-query').value;
   getAlbums(artist);
