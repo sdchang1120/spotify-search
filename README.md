@@ -1,5 +1,5 @@
 # Spotify Search
-A simple search application using Spotify API to listen to music.
+A simple music application using Spotify API to listen to music by your favorite artist.
 
 ## How to Use
 1. Enter an artist and associated albums will return
